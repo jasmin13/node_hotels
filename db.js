@@ -8,10 +8,7 @@ const mongoUrl = process.env.MONGODB_URL; // Replace 'database' with your databa
 // Replace 'database' with your database
 
 // Connect to the MongoDB database
-mongoose.connect(mongoUrl, {
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
-});
+mongoose.connect(mongoUrl);
 
 // Get the default connection
 const db = mongoose.connection;
