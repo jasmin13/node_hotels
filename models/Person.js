@@ -31,14 +31,14 @@ const personSchema = new mongoose.Schema({
     type: Number,
     required: true,
   },
-  username: {
+ /*  username: {
     type: String,
     required: true,
   },
   password: {
     type: String,
     required: true,
-  },
+  }, */
 });
 
 // Create the Person model
