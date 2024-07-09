@@ -2,9 +2,7 @@ const express = require("express");
 const app = express();
 const db = require("./db");
 require("dotenv").config();
-
-const passport = require("passport");
-const LocalStrategy = require("passport-local").Strategy;
+const passport = require("./auth");
 
 const bodyParser = require("body-parser");
 app.use(bodyParser.json());
@@ -21,6 +19,10 @@ const logRequest = (req, res, next) => {
 // Apply middleware to all routes
 app.use(logRequest);
 
+
+app.use(passport.initialize());
+
+const localAuthMiddleware = passport.authenticate('local', { session: false });
 app.get("/", (req, res) => {
   res.send("Welcome to our Hotel");
 });
